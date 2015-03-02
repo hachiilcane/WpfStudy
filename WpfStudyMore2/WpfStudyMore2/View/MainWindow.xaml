@@ -20,6 +20,20 @@
                 </StackPanel>
             </Border>
         </DataTemplate>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+        	<VirtualizingStackPanel IsItemsHost="True">
+        		<i:Interaction.Behaviors>
+        			<ei:FluidMoveBehavior AppliesTo="Children">
+        				<ei:FluidMoveBehavior.EaseY>
+        					<CircleEase EasingMode="EaseOut"/>
+        				</ei:FluidMoveBehavior.EaseY>
+        				<ei:FluidMoveBehavior.EaseX>
+        					<CircleEase EasingMode="EaseOut"/>
+        				</ei:FluidMoveBehavior.EaseX>
+        			</ei:FluidMoveBehavior>
+        		</i:Interaction.Behaviors>
+        	</VirtualizingStackPanel>
+        </ItemsPanelTemplate>
     </Controls:MetroWindow.Resources>
     <Controls:MetroWindow.DataContext>
         <vm:MainViewModel/>
@@ -37,7 +51,7 @@
                 </ToggleButton>
                 <TextBlock TextWrapping="Wrap" Text="森の気になるニュースをリアルタイムで！" VerticalAlignment="Center" FontSize="14" FontWeight="Bold"/>
             </StackPanel>
-            <ListBox x:Name="listBox" DockPanel.Dock="Bottom" ItemsSource="{Binding Articles}">
+            <ListBox x:Name="listBox" DockPanel.Dock="Bottom" ItemsSource="{Binding Articles}" ItemsPanel="{DynamicResource ItemsPanelTemplate1}">
                 <i:Interaction.Behaviors>
                     <view:ScrollToEndBehavior />
                 </i:Interaction.Behaviors>
