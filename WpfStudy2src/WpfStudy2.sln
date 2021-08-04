@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfStudy2ready", "WpfStudy2ready\WpfStudy2ready.csproj", "{D74866EC-F4E2-43A3-BE0F-67A38E010306}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfStudy2", "WpfStudy2\WpfStudy2.csproj", "{83D19B8F-6ACE-4AB8-81D1-FBF7CCA08063}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D74866EC-F4E2-43A3-BE0F-67A38E010306}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D74866EC-F4E2-43A3-BE0F-67A38E010306}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D74866EC-F4E2-43A3-BE0F-67A38E010306}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D74866EC-F4E2-43A3-BE0F-67A38E010306}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83D19B8F-6ACE-4AB8-81D1-FBF7CCA08063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83D19B8F-6ACE-4AB8-81D1-FBF7CCA08063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83D19B8F-6ACE-4AB8-81D1-FBF7CCA08063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83D19B8F-6ACE-4AB8-81D1-FBF7CCA08063}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

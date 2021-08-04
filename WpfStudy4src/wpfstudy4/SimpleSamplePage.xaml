@@ -1,0 +1,31 @@
+﻿<Page x:Class="WpfStudy4.SimpleSamplePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="SimpleSamplePage">
+    <Page.Resources>
+        <SolidColorBrush x:Key="ButtonBackColor" Color="AliceBlue"/>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource ButtonBackColor}"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style x:Key="AmazingButtonStyle" TargetType="{x:Type Button}"
+    		BasedOn="{StaticResource ResourceKey={x:Type Button}}">
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <RotateTransform Angle="10"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <UniformGrid>
+            <Button Content="Button1"/>
+            <Button Content="Button2" Style="{StaticResource AmazingButtonStyle}"/>
+            <Button Content="Button3"/>
+        </UniformGrid>
+    </Grid>
+</Page>
