@@ -1,0 +1,14 @@
+﻿<mah:MetroWindow
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:view="clr-namespace:WpfStudyMore.View"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:Behaviors="http://schemas.microsoft.com/xaml/behaviors"
+        x:Name="metroWindow" x:Class="WpfStudyMore.View.MainWindow"
+        GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
+        ShowIconOnTitleBar="True"
+        Title="森のニュース47" Height="350" Width="525">
+	<Grid>
+	</Grid>
+</mah:MetroWindow>
