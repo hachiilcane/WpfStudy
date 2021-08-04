@@ -27,25 +27,25 @@ namespace WpfStudyMore1.View
 
         private void btnTrialPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
+            NavigationService ns = NavigationService;
             ns.Navigate(new TrialPage());
         }
 
         private void btnTwoButtonTogglePage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
+            NavigationService ns = NavigationService;
             ns.Navigate(new TwoButtonTogglePage());
         }
 
         private void btnNormalCommandsPage_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
+            NavigationService ns = NavigationService;
             ns.Navigate(new NormalCommandsPage());
         }
 
         private void btnDataBindingToSource_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService ns = this.NavigationService;
+            NavigationService ns = NavigationService;
             ns.Navigate(new DataBindingToSourcePage());
         }
     }

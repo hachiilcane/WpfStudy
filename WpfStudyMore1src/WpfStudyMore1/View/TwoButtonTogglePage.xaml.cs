@@ -24,7 +24,7 @@ namespace WpfStudyMore1.View
         {
             InitializeComponent();
 
-            this.DataContext = new TwoButtonToggleViewModel();
+            DataContext = new TwoButtonToggleViewModel();
         }
     }
 }
