@@ -4,27 +4,22 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfStudy3bk.Common;
 
 namespace WpfStudy3bk.ViewModel
 {
     
     public class AnimalsViewModel : ViewModelBase
     {
-        public ObservableCollection<string> SimplyList
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<string> SimplyList { get; set; }
 
-        public ObservableCollection<AnimalViewModel> Animals
-        {
-            get;
-            set;
-        }
+        public ObservableCollection<AnimalViewModel> Animals { get; set; }
+
+        public RelayCommand AddAnimalCommand { get; }
 
         public AnimalsViewModel()
         {
-            ObservableCollection<string> simplyList = new ObservableCollection<string>()
+            SimplyList = new ObservableCollection<string>()
             {
                 "Rabit",
                 "Dog",
@@ -32,8 +27,6 @@ namespace WpfStudy3bk.ViewModel
                 "Panda",
                 "Pony"
             };
-
-            SimplyList = simplyList;
 
             Animals = new ObservableCollection<AnimalViewModel>()
             {
@@ -44,11 +37,11 @@ namespace WpfStudy3bk.ViewModel
                 new AnimalViewModel() { Species = "Pony", Name = "うまさん", Popularity = 2 },
 
             };
-        }
 
-        public void PushedAdd()
-        {
-            Animals.Add(new AnimalViewModel() { Species = "Bear", Name = "くまさん", Popularity = 3 });
+            AddAnimalCommand = new RelayCommand(obj =>
+            {
+                Animals.Add(new AnimalViewModel() { Species = "Bear", Name = "くまさん", Popularity = 3 });
+            });
         }
     }
 }

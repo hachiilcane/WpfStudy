@@ -60,6 +60,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="ViewModel\AnimalsViewModel.cs" />
     <Compile Include="ViewModel\AnimalViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />

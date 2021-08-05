@@ -15,12 +15,12 @@
         		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Stretch" CornerRadius="4">
         			<StackPanel Orientation="Horizontal">
         				<!--<ed:Callout AnchorPoint="0,1.25" CalloutStyle="Rectangle" Fill="#FFF4F4F5" FontSize="14.667" Height="Auto" Stroke="Black" Width="Auto" Content="{Binding Name}" Padding="3" Margin="5,5,5,10"/>-->
-                        <Border BorderBrush="Gray" BorderThickness="1" CornerRadius="4"
+                        <Border BorderBrush="Gray" BorderThickness="1" Background="PeachPuff" CornerRadius="4"
                                 Margin="3">
                             <TextBlock Text="{Binding Name}" />
                         </Border>
-        				<TextBlock TextWrapping="Wrap" Text="Species:" VerticalAlignment="Center"/>
-        				<TextBlock TextWrapping="Wrap" Text="{Binding Species}" VerticalAlignment="Center"/>
+        				<TextBlock Text="Species:" VerticalAlignment="Center"/>
+        				<TextBlock Text="{Binding Species}" VerticalAlignment="Center"/>
         			</StackPanel>
         		</Border>
         	</Grid>
@@ -35,24 +35,25 @@
 			<ColumnDefinition/>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<ListBox x:Name="SimplyListBox" ItemsSource="{Binding SimplyList}" Grid.RowSpan="2" Grid.Row="1">
+        <ListBox x:Name="SimplyListBox" Grid.Row="1" Grid.RowSpan="2"
+                 ItemsSource="{Binding SimplyList}"
+                 HorizontalContentAlignment="Stretch">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<Border CornerRadius="0" BorderBrush="Black" BorderThickness="1">
-						<Grid Margin="3" Width="100">
+						<Grid Margin="3">
 							<TextBlock Text="{Binding}"/>
 						</Grid>
 					</Border>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
-		<ListBox x:Name="AnimalsListBox" Grid.Column="1" ItemsSource="{Binding Animals}" ItemTemplate="{DynamicResource AnimalTemplate}" Grid.Row="1"/>
-		<Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75">
-			<Behaviors:Interaction.Triggers>
-				<Behaviors:EventTrigger EventName="Click">
-					<Behaviors:CallMethodAction MethodName="PushedAdd" TargetObject="{Binding Mode=OneWay}"/>
-				</Behaviors:EventTrigger>
-			</Behaviors:Interaction.Triggers>
-		</Button>
-	</Grid>
+        
+        <Button Grid.Column="1" Margin="4"
+                Content="Add"
+                Command="{Binding AddAnimalCommand}" />
+        <ListBox Grid.Row="1" Grid.Column="1"
+                 ItemsSource="{Binding Animals}"
+                 ItemTemplate="{DynamicResource AnimalTemplate}" />
+    </Grid>
 </Window>
