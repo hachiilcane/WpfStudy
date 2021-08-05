@@ -41,6 +41,9 @@ namespace WpfStudyMore1.ViewModel
         private void StartService(object o)
         {
             _isRunning = true;
+
+            // ViewModelからMessageBoxを直接表示するのは悪い設計です。
+            // Messengerパターンを使うか、使用するフレームワークが提供しているダイアログ表示の仕組みを使うべきでしょう。
             System.Windows.MessageBox.Show("がんばります！");
         }
 
@@ -52,6 +55,10 @@ namespace WpfStudyMore1.ViewModel
         private void StopService(object o)
         {
             _isRunning = false;
+
+            // ViewModelからMessageBoxを直接表示するのは悪い設計です。
+            // Messengerパターンを使うか、使用するフレームワークが提供しているダイアログ表示の仕組みを使うべきでしょう。
+
             System.Windows.MessageBox.Show("がんばりました！");
         }
 

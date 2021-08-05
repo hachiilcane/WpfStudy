@@ -8,18 +8,7 @@ namespace WpfStudyMore1.ViewModel
 {
     public class AnimalPageViewModel : ViewModelBase
     {
-        private List<string> _animalTypes = new List<string>()
-        {
-            "いぬ", "ねこ", "ひつじ", "うま", "とら"
-        };
-
-        public List<string> AnimalTypes
-        {
-            get
-            {
-                return _animalTypes;
-            }
-        }
+        public List<string> AnimalTypes { get; } = new List<string>() { "いぬ", "ねこ", "ひつじ", "うま", "とら" };
 
         private string _selectedAnimalType;
         public string SelectedAnimalType
@@ -33,6 +22,8 @@ namespace WpfStudyMore1.ViewModel
                 _selectedAnimalType = value;
                 OnPropertyChanged("SelectedAnimalType");
 
+                // ViewModelからMessageBoxを直接表示するのは悪い設計です。
+                // Messengerパターンを使うか、使用するフレームワークが提供しているダイアログ表示の仕組みを使うべきでしょう。
                 System.Windows.MessageBox.Show(_selectedAnimalType + "さんが好きなんですね！");
             }
         }
