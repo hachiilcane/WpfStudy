@@ -3,4 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525" Source="View/MainPage.xaml">
 
+    <!-- NavigationWindowを使うのはかなり古いやり方だと思います。
+    WPFのフレームワーク（Prismなど）が提供する画面遷移の方法を利用するほうがよいでしょう。 -->
 </NavigationWindow>
