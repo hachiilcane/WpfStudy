@@ -20,7 +20,7 @@ namespace WpfStudy3bk.ViewModel
                 if (_species != value)
                 {
                     _species = value;
-                    OnPropertyChanged("Species");
+                    OnPropertyChanged(nameof(Species));
                 }
             }
         }
@@ -37,7 +37,7 @@ namespace WpfStudy3bk.ViewModel
                 if (_name != value)
                 {
                     _name = value;
-                    OnPropertyChanged("Name");
+                    OnPropertyChanged(nameof(Name));
                 }
             }
         }
@@ -54,7 +54,7 @@ namespace WpfStudy3bk.ViewModel
                 if (_popularity != value)
                 {
                     _popularity = value;
-                    OnPropertyChanged("Popularity");
+                    OnPropertyChanged(nameof(Popularity));
                 }
             }
         }

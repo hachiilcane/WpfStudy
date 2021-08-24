@@ -39,10 +39,8 @@ namespace WpfStudy.Model
 
         private void CrawlTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (Updated != null)
-            {
-                Updated(this, new NewsUpdatedEventArgs(GetNews()));
-            }
+            // null 条件演算子（?を使った書き方）を使うと、nullチェックが楽に書けます。
+            Updated?.Invoke(this, new NewsUpdatedEventArgs(GetNews()));
         }
 
         private bool _first = true;

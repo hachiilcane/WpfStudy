@@ -21,8 +21,7 @@ namespace WpfStudy.View
         {
             base.OnAttached();
 
-            var collectionObj = AssociatedObject.ItemsSource as INotifyCollectionChanged;
-            if (collectionObj != null)
+            if (AssociatedObject.ItemsSource is INotifyCollectionChanged collectionObj)
             {
                 collectionObj.CollectionChanged += ItemsSource_CollectionChanged;
             }
@@ -30,8 +29,7 @@ namespace WpfStudy.View
 
         protected override void OnDetaching()
         {
-            var collectionObj = AssociatedObject.ItemsSource as INotifyCollectionChanged;
-            if (collectionObj != null)
+            if (AssociatedObject.ItemsSource is INotifyCollectionChanged collectionObj)
             {
                 collectionObj.CollectionChanged -= ItemsSource_CollectionChanged;
             }
@@ -41,15 +39,17 @@ namespace WpfStudy.View
 
         private void ItemsSource_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            var listBox = AssociatedObject as ListBox;
-            if (listBox == null)
-            {
-                return;
-            }
+            // この ～ is T 変数名 という書き方は
+            // if (～ is T)
+            // { var 変数名 = ～ as T;
+            // のような感じの処理を1行で書けるので便利です。
 
-            if (listBox.Items.Count > 0)
+            if (AssociatedObject is ListBox listBox)
             {
-                listBox.ScrollIntoView(listBox.Items[listBox.Items.Count - 1]);
+                if (listBox.Items.Count > 0)
+                {
+                    listBox.ScrollIntoView(listBox.Items[listBox.Items.Count - 1]);
+                }
             }
         }
     }

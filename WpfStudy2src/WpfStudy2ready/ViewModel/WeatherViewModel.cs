@@ -15,14 +15,14 @@ namespace WpfStudy2ready.ViewModel
         {
             get
             {
-                return this._isFine;
+                return _isFine;
             }
             set
             {
                 if (_isFine != value)
                 {
                     _isFine = value;
-                    OnPropertyChanged("IsFine");
+                    OnPropertyChanged(nameof(IsFine)); // nameof演算子で文字列リテラルを取得できるので使うと便利
                 }
             }
         }
@@ -39,7 +39,7 @@ namespace WpfStudy2ready.ViewModel
                 if (_humidity != value)
                 {
                     _humidity = value;
-                    OnPropertyChanged("Humidity");
+                    OnPropertyChanged(nameof(Humidity));
                 }
             }
         }

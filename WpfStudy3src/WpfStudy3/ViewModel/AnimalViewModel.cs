@@ -8,53 +8,53 @@ namespace WpfStudy3.ViewModel
 {
     public class AnimalViewModel : ViewModelBase
     {
-        private string species;
+        private string _species;
         public string Species
         {
             get
             {
-                return this.species;
+                return _species;
             }
             set
             {
-                if (this.species != value)
+                if (_species != value)
                 {
-                    this.species = value;
-                    OnPropertyChanged("Species");
+                    _species = value;
+                    OnPropertyChanged(nameof(Species));
                 }
             }
         }
 
-        private string name;
+        private string _name;
         public string Name
         {
             get
             {
-                return this.name;
+                return _name;
             }
             set
             {
-                if (this.name != value)
+                if (_name != value)
                 {
-                    this.name = value;
-                    OnPropertyChanged("Name");
+                    _name = value;
+                    OnPropertyChanged(nameof(Name));
                 }
             }
         }
 
-        private int popularity;
+        private int _popularity;
         public int Popularity
         {
             get
             {
-                return this.popularity;
+                return _popularity;
             }
             set
             {
-                if (this.popularity != value)
+                if (_popularity != value)
                 {
-                    this.popularity = value;
-                    OnPropertyChanged("Popularity");
+                    _popularity = value;
+                    OnPropertyChanged(nameof(Popularity));
                 }
             }
         }

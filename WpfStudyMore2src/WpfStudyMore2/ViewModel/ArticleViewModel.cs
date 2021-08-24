@@ -34,7 +34,7 @@ namespace WpfStudy.ViewModel
                     _title = value;
                 }
 
-                RaisePropertyChanged("Title");
+                RaisePropertyChanged(nameof(Title));
             }
         }
 
@@ -52,7 +52,7 @@ namespace WpfStudy.ViewModel
                     _content = value;
                 }
 
-                RaisePropertyChanged("Content");
+                RaisePropertyChanged(nameof(Content));
             }
         }
 
@@ -70,7 +70,7 @@ namespace WpfStudy.ViewModel
                     _updatedDate = value;
                 }
 
-                RaisePropertyChanged("UpdatedDate");
+                RaisePropertyChanged(nameof(UpdatedDate));
             }
         }
     }

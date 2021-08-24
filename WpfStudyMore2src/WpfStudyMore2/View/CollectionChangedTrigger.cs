@@ -19,8 +19,7 @@ namespace WpfStudy.View
         {
             base.OnAttached();
 
-            var collectionObj = AssociatedObject.ItemsSource as INotifyCollectionChanged;
-            if (collectionObj != null)
+            if (AssociatedObject.ItemsSource is INotifyCollectionChanged collectionObj)
             {
                 collectionObj.CollectionChanged += ItemsSource_CollectionChanged;
             }
@@ -28,8 +27,7 @@ namespace WpfStudy.View
 
         protected override void OnDetaching()
         {
-            var collectionObj = AssociatedObject.ItemsSource as INotifyCollectionChanged;
-            if (collectionObj != null)
+            if (AssociatedObject.ItemsSource is INotifyCollectionChanged collectionObj)
             {
                 collectionObj.CollectionChanged -= ItemsSource_CollectionChanged;
             }

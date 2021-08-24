@@ -17,15 +17,12 @@ namespace WpfStudy.View
     {
         protected override void Invoke(object parameter)
         {
-            var listBox = AssociatedObject as ListBox;
-            if (listBox == null)
+            if (AssociatedObject is ListBox listBox)
             {
-                return;
-            }
-
-            if (listBox.Items.Count > 0)
-            {
-                listBox.ScrollIntoView(listBox.Items[listBox.Items.Count - 1]);
+                if (listBox.Items.Count > 0)
+                {
+                    listBox.ScrollIntoView(listBox.Items[listBox.Items.Count - 1]);
+                }
             }
         }
     }

@@ -12,52 +12,43 @@ namespace WpfStudy.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private RelayCommand _newsSubscriptionCommand;
         private NewsCrawler _crawler = new NewsCrawler();
 
         public ObservableCollection<ArticleViewModel> Articles { get; } = new ObservableCollection<ArticleViewModel>();
 
-        public RelayCommand NewsSubscriptionCommand
-        {
-            get
-            {
-                if (_newsSubscriptionCommand == null)
-                {
-                    _newsSubscriptionCommand = new RelayCommand(
-                        isChecked =>    // ExecuteCommand
-                        {
-                            if ((bool)isChecked)
-                            {
-                                _crawler.Updated += Crawler_Updated;
-                                _crawler.Start();
-                            }
-                            else
-                            {
-                                _crawler.Updated -= Crawler_Updated;
-                                _crawler.Stop();
-                            }
-                        });
-                }
+        public RelayCommand NewsSubscriptionCommand { get; }
 
-                return _newsSubscriptionCommand;
-            }
+        public MainViewModel()
+        {
+            NewsSubscriptionCommand = new RelayCommand(
+                isChecked =>    // ExecuteCommand
+                {
+                    if ((bool)isChecked)
+                    {
+                        _crawler.Updated += Crawler_Updated;
+                        _crawler.Start();
+                    }
+                    else
+                    {
+                        _crawler.Updated -= Crawler_Updated;
+                        _crawler.Stop();
+                    }
+                });
         }
 
         private void Crawler_Updated(object sender, NewsUpdatedEventArgs e)
         {
-            var news = e.Articles;
-            if (Application.Current != null)
+            var latestNews = e.Articles;
+
+            Application.Current?.Dispatcher.Invoke(new Action(() =>
             {
-                Application.Current.Dispatcher.Invoke(new Action(() =>
-                {
-                    news.ForEach(
-                        n =>
-                        {
-                            Articles.Add(
-                                new ArticleViewModel(n.Title, n.Content, DateTime.Parse(n.Date)));
-                        });
-                }));
-            }
+                latestNews.ForEach(
+                    n =>
+                    {
+                        Articles.Add(
+                            new ArticleViewModel(n.Title, n.Content, DateTime.Parse(n.Date)));
+                    });
+            }));
         }
     }
 }

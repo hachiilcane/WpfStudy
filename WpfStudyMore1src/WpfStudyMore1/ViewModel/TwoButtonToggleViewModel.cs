@@ -10,32 +10,13 @@ namespace WpfStudyMore1.ViewModel
     {
         private bool _isRunning = false;
 
-        private RelayCommand _startServiceCommand;
+        public RelayCommand StartServiceCommand { get; } // これはプロパティの自動実装の書き方
+        public RelayCommand StopServiceCommand { get; }
 
-        public RelayCommand StartServiceCommand
+        public TwoButtonToggleViewModel()
         {
-            get
-            {
-                if (_startServiceCommand == null)
-                {
-                    _startServiceCommand = new RelayCommand(StartService, CanStartService);
-                }
-                return _startServiceCommand;
-            }
-        }
-
-        private RelayCommand _stopServiceCommand;
-
-        public RelayCommand StopServiceCommand
-        {
-            get
-            {
-                if (_stopServiceCommand == null)
-                {
-                    _stopServiceCommand = new RelayCommand(StopService, CanStopService);
-                }
-                return _stopServiceCommand;
-            }
+            StartServiceCommand = new RelayCommand(StartService, CanStartService);
+            StopServiceCommand = new RelayCommand(StopService, CanStopService);
         }
 
         private void StartService(object o)

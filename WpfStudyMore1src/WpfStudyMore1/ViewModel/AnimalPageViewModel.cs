@@ -20,7 +20,7 @@ namespace WpfStudyMore1.ViewModel
             set
             {
                 _selectedAnimalType = value;
-                OnPropertyChanged("SelectedAnimalType");
+                OnPropertyChanged(nameof(SelectedAnimalType));
 
                 // ViewModelからMessageBoxを直接表示するのは悪い設計です。
                 // Messengerパターンを使うか、使用するフレームワークが提供しているダイアログ表示の仕組みを使うべきでしょう。
@@ -35,9 +35,9 @@ namespace WpfStudyMore1.ViewModel
             set
             {
                 _meter = value;
-                OnPropertyChanged("Meter");
-                double dblMeter;
-                if (double.TryParse(value, out dblMeter))
+                OnPropertyChanged(nameof(Meter));
+
+                if (double.TryParse(value, out double dblMeter))
                 {
                     Mile = (dblMeter / 1609.344).ToString("0.000") + " Mile";
                 }
@@ -55,7 +55,7 @@ namespace WpfStudyMore1.ViewModel
             set
             {
                 _mile = value;
-                OnPropertyChanged("Mile");
+                OnPropertyChanged(nameof(Mile));
             }
         }
     }
